@@ -1,1 +1,153 @@
 
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPoint 投影片瀏覽器</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+    
+    <style>
+        /* 基本樣式 reset */
+        body, h1 { margin: 0; padding: 0; }
+        
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: #f4f4f7;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* 標題區域 */
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* 相簿網格佈局 (CSS Grid) */
+        .gallery-container {
+            display: grid;
+            /* 自動填滿，最小寬度 200px (手機上會自動變單欄或雙欄) */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px; /* 圖片間距 */
+        }
+
+        /* 單個圖片項目的樣式 */
+        .gallery-item {
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none; /* 移除超連結底線 */
+            display: block; /* 讓整個區域都可點擊 */
+        }
+
+        /* 滑鼠懸停效果 */
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 圖片本身樣式 */
+        .gallery-item img {
+            width: 100%;
+            height: auto; /* 保持投影比例 */
+            display: block;
+            border-radius: 4px;
+        }
+
+        /* 圖片下方編號 */
+        .slide-number {
+            display: block;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        /* 自定義燈箱內部的數字顯示 (例如 1 of 150) */
+        .mfp-counter {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>PowerPoint Presentation</h1>
+        <p class="subtitle">共 150 張投影片</p>
+    </header>
+
+    <div class="gallery-container" id="slidesGallery">
+        </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        const totalSlides = 150; // 投影片總數
+        const folderPath = 'PowerpointFille'; // 資料夾名稱 (不帶前後斜線)
+        const gallery = $('#slidesGallery');
+
+        // --- 步驟 1: 使用迴圈自動生成 150 張投影片的 HTML ---
+        for (let i = 1; i <= totalSlides; i++) {
+            // 構建檔案路徑 (例如: PowerpointFille/投影片1.jpg)
+            const fileName = `投影片${i}.jpg`;
+            const filePath = `${folderPath}/${fileName}`;
+
+            // 生成 HTML 結構
+            const slideHtml = `
+                <a href="${filePath}" class="gallery-item" title="投影片 ${i}">
+                    <img src="${filePath}" alt="投影片 ${i}" loading="lazy">
+                    <span class="slide-number">Slide ${i}</span>
+                </a>
+            `;
+            
+            // 插入到頁面中
+            gallery.append(slideHtml);
+        }
+
+        // --- 步驟 2: 啟用燈箱效果 (Lightbox) ---
+        // 這會讓點擊縮圖時彈出大圖，並允許切換
+        $('#slidesGallery').magnificPopup({
+            delegate: 'a', // 目標物件是 gallery 內的 <a> 標籤
+            type: 'image',
+            gallery: {
+                enabled: true, // 啟用相簿模式 (下一張/上一張)
+                navigateByImgClick: true, // 點擊圖片切換下一張
+                preload: [0, 1] // 預載入前後一張圖片
+            },
+            image: {
+                tError: '<a href="%url%">圖片 #%curr%</a> 無法載入。', // 錯誤訊息
+                titleSrc: function(item) {
+                    return item.el.attr('title'); // 使用 <a> 的 title 作為大圖標題
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
