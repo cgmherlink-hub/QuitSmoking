@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -56,9 +55,8 @@
         /* 相簿網格佈局 (CSS Grid) */
         .gallery-container {
             display: grid;
-            /* 自動填滿，最小寬度 200px (手機上會自動變單欄或雙欄) */
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px; /* 圖片間距 */
+            gap: 15px;
         }
 
         /* 單個圖片項目的樣式 */
@@ -68,8 +66,8 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-decoration: none; /* 移除超連結底線 */
-            display: block; /* 讓整個區域都可點擊 */
+            text-decoration: none;
+            display: block;
         }
 
         /* 滑鼠懸停效果 */
@@ -81,12 +79,12 @@
         /* 圖片本身樣式 */
         .gallery-item img {
             width: 100%;
-            height: auto; /* 保持投影比例 */
+            height: auto;
             display: block;
             border-radius: 4px;
         }
 
-        /* 圖片下方編號 */
+        /* 圖片下方標題 */
         .slide-number {
             display: block;
             text-align: center;
@@ -96,7 +94,6 @@
             font-weight: bold;
         }
 
-        /* 自定義燈箱內部的數字顯示 (例如 1 of 150) */
         .mfp-counter {
             font-family: sans-serif;
         }
@@ -107,55 +104,34 @@
 <div class="container">
     <header>
         <h1>PowerPoint Presentation</h1>
-        <p class="subtitle">共 150 張投影片</p>
+        <p class="subtitle">Jimmy 醫師照片</p>
     </header>
 
     <div class="gallery-container" id="slidesGallery">
-        </div>
+        <a href="jimmyphoto.png" class="gallery-item" title="Jimmy 醫師">
+            <img src="jimmyphoto.png" alt="Jimmy 醫師" loading="lazy">
+            <span class="slide-number">Jimmy 醫師</span>
+        </a>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
 <script>
     $(document).ready(function() {
-        const totalSlides = 150; // 投影片總數
-        const folderPath = 'PowerpointFille'; // 資料夾名稱 (不帶前後斜線)
-        const gallery = $('#slidesGallery');
-
-        // --- 步驟 1: 使用迴圈自動生成 150 張投影片的 HTML ---
-        for (let i = 1; i <= totalSlides; i++) {
-            // 構建檔案路徑 (例如: PowerpointFille/投影片1.jpg)
-            const fileName = `投影片${i}.jpg`;
-            const filePath = `${folderPath}/${fileName}`;
-
-            // 生成 HTML 結構
-            const slideHtml = `
-                <a href="${filePath}" class="gallery-item" title="投影片 ${i}">
-                    <img src="${filePath}" alt="投影片 ${i}" loading="lazy">
-                    <span class="slide-number">Slide ${i}</span>
-                </a>
-            `;
-            
-            // 插入到頁面中
-            gallery.append(slideHtml);
-        }
-
-        // --- 步驟 2: 啟用燈箱效果 (Lightbox) ---
-        // 這會讓點擊縮圖時彈出大圖，並允許切換
         $('#slidesGallery').magnificPopup({
-            delegate: 'a', // 目標物件是 gallery 內的 <a> 標籤
+            delegate: 'a',
             type: 'image',
             gallery: {
-                enabled: true, // 啟用相簿模式 (下一張/上一張)
-                navigateByImgClick: true, // 點擊圖片切換下一張
-                preload: [0, 1] // 預載入前後一張圖片
+                enabled: true,
+                navigateByImgClick: true,
+                preload: [0, 1]
             },
             image: {
-                tError: '<a href="%url%">圖片 #%curr%</a> 無法載入。', // 錯誤訊息
+                tError: '<a href="%url%">圖片 #%curr%</a> 無法載入。',
                 titleSrc: function(item) {
-                    return item.el.attr('title'); // 使用 <a> 的 title 作為大圖標題
+                    return item.el.attr('title');
                 }
             }
         });
