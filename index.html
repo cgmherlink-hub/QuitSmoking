@@ -84,14 +84,25 @@
             border-radius: 4px;
         }
 
-        /* 圖片下方標題 */
-        .slide-number {
-            display: block;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #555;
-            margin-top: 8px;
-            font-weight: bold;
+        /* iframe 容器：響應式 16:9 */
+        .ppt-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            background: #000;
+        }
+
+        .ppt-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .mfp-counter {
@@ -104,39 +115,28 @@
 <div class="container">
     <header>
         <h1>PowerPoint Presentation</h1>
-        <p class="subtitle">Jimmy 醫師照片</p>
+        <p class="subtitle">線上簡報瀏覽</p>
     </header>
 
-    <div class="gallery-container" id="slidesGallery">
-        <a href="jimmyphoto.png" class="gallery-item" title="Jimmy 醫師">
-            <img src="jimmyphoto.png" alt="Jimmy 醫師" loading="lazy">
-            <span class="slide-number">Jimmy 醫師</span>
-        </a>
+    <!-- 內嵌 Office 簡報 -->
+    <div class="ppt-wrapper">
+        <iframe src="https://changgunguniversity-my.sharepoint.com/personal/d8600010_cgu_edu_tw/_layouts/15/Doc.aspx?sourcedoc={08631219-2176-48c6-9a0f-7e4d4dcf37f5}&amp;action=embedview&amp;wdAr=1.7777777777777777&amp;wdEaaCheck=1"
+            frameborder="0"
+            title="PowerPoint Viewer"
+            allowfullscreen>
+            這是 <a target="_blank" href="https://office.com/webapps">Office</a> 提供的內嵌 <a target="_blank" href="https://office.com">Microsoft Office</a> 簡報。
+        </iframe>
     </div>
+
+    <!-- jimmyphoto.png -->
+    <div style="text-align:center; margin-top: 30px;">
+        <img src="jimmyphoto.png" alt="Jimmy 醫師" style="max-width:300px; width:100%; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <p style="margin-top:10px; color:#555; font-weight:bold;">Jimmy 醫師</p>
+    </div>
+
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-        $('#slidesGallery').magnificPopup({
-            delegate: 'a',
-            type: 'image',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-                preload: [0, 1]
-            },
-            image: {
-                tError: '<a href="%url%">圖片 #%curr%</a> 無法載入。',
-                titleSrc: function(item) {
-                    return item.el.attr('title');
-                }
-            }
-        });
-    });
-</script>
 
 </body>
 </html>
