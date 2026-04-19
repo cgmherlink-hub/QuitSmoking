@@ -178,4 +178,618 @@
 
 
 </body>
+    <!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>戒菸衛教 · Dr. Jimmy 診間故事集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #faf8f3;
+      --warm-white: #f5f2ec;
+      --ink: #1a1a2e;
+      --ink-soft: #3d3d55;
+      --muted: #8a8a9a;
+      --border: #e8e4da;
+      --amber: #a0522d;
+      --amber-light: #fdf5ee;
+      --amber-mid: #c8794a;
+      --teal: #2c9b8a;
+      --teal-light: #e8f5f3;
+      --indigo: #4a6fa5;
+      --indigo-light: #eef2f9;
+      --rose: #c0566a;
+      --rose-light: #fdf0f2;
+      --lime: #5a8a3c;
+      --lime-light: #f0f7ea;
+      --shadow-soft: 0 4px 20px rgba(26,26,46,0.06);
+      --shadow-hover: 0 16px 40px rgba(26,26,46,0.13);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Noto Sans TC", sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+    /* ── HEADER ── */
+    header {
+      position: relative;
+      min-height: 400px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 80px 24px 70px; overflow: hidden;
+    }
+    .header-bg {
+      position: absolute; inset: 0;
+      background: #1a1008;
+      z-index: 0;
+    }
+    .header-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 15% 40%, rgba(160,82,45,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 85% 60%, rgba(200,121,74,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 55% 5%, rgba(192,86,106,0.12) 0%, transparent 50%);
+    }
+    .header-particles {
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle 1px at 20% 30%, rgba(255,255,255,0.06) 0%, transparent 0%),
+        radial-gradient(circle 1px at 40% 70%, rgba(255,255,255,0.04) 0%, transparent 0%),
+        radial-gradient(circle 1px at 70% 20%, rgba(255,255,255,0.05) 0%, transparent 0%),
+        radial-gradient(circle 1px at 90% 80%, rgba(255,255,255,0.03) 0%, transparent 0%);
+    }
+    .smoke-deco {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+      background: linear-gradient(to top, rgba(250,248,243,0.08) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .back-link {
+      position: absolute; top: 22px; left: 22px; z-index: 10;
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.78em; font-weight: 500; color: rgba(255,255,255,0.55);
+      text-decoration: none; letter-spacing: 0.05em;
+      padding: 6px 12px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      transition: all 0.2s;
+    }
+    .back-link:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.1); }
+    .header-badge {
+      position: relative; z-index: 1;
+      display: inline-block; font-size: 0.72em; font-weight: 500;
+      letter-spacing: 0.22em; color: var(--amber-mid);
+      text-transform: uppercase; margin-bottom: 20px;
+      padding: 5px 14px; border: 1px solid rgba(200,121,74,0.4);
+      border-radius: 20px; background: rgba(200,121,74,0.1);
+    }
+    header h1 {
+      position: relative; z-index: 1;
+      font-family: "DM Serif Display", "Noto Serif TC", serif;
+      font-size: clamp(2em, 5vw, 3.2em);
+      color: white; font-weight: 400;
+      letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 16px;
+    }
+    header h1 .italic { font-style: italic; color: rgba(255,255,255,0.65); }
+    header h1 .highlight { color: #e8a060; }
+    .header-quote {
+      position: relative; z-index: 1;
+      font-size: 1em; font-weight: 300; color: rgba(255,255,255,0.55);
+      letter-spacing: 0.06em; max-width: 480px; line-height: 1.8;
+      font-style: italic;
+    }
+    .header-line {
+      position: relative; z-index: 1;
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--amber), var(--rose));
+      margin: 24px auto 0; border-radius: 2px;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 860px; margin: 0 auto; padding: 60px 24px 90px; }
+    .section-label {
+      font-size: 0.72em; letter-spacing: 0.18em; font-weight: 500;
+      color: var(--muted); text-transform: uppercase; margin-bottom: 28px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .section-gap { margin-top: 52px; }
+
+    /* ── INTRO PROSE ── */
+    .intro-block {
+      background: white; border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 40px 44px;
+      margin-bottom: 32px;
+    }
+    .intro-block .lead {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.22em; font-weight: 600;
+      color: var(--ink); line-height: 1.7;
+      margin-bottom: 20px;
+      border-left: 3px solid var(--amber);
+      padding-left: 18px;
+    }
+    .intro-block p {
+      font-size: 0.96em; color: var(--ink-soft);
+      line-height: 1.95; font-weight: 300; margin-bottom: 16px;
+    }
+    .intro-block p:last-child { margin-bottom: 0; }
+    .intro-block p strong { font-weight: 500; color: var(--ink); }
+
+    /* ── STAT ROW ── */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin: 32px 0;
+    }
+    .stat-card {
+      background: var(--amber-light);
+      border: 1px solid rgba(160,82,45,0.15);
+      border-radius: 14px; padding: 22px 20px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: "DM Serif Display", serif;
+      font-size: 2.2em; color: var(--amber);
+      line-height: 1; margin-bottom: 6px;
+    }
+    .stat-desc {
+      font-size: 0.78em; color: var(--ink-soft);
+      font-weight: 400; line-height: 1.5;
+    }
+
+    /* ── LINK CARDS ── */
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .link-card {
+      display: block; text-decoration: none;
+      background: white; border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 0.28s cubic-bezier(.22,.68,0,1.2), box-shadow 0.28s ease;
+    }
+    .link-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .link-card-accent { height: 4px; }
+    .link-card-accent.amber { background: linear-gradient(90deg, var(--amber), var(--amber-mid)); }
+    .link-card-accent.teal  { background: linear-gradient(90deg, var(--teal), #48b4a0); }
+    .link-card-accent.indigo{ background: linear-gradient(90deg, var(--indigo), #6a8fc5); }
+    .link-card-accent.rose  { background: linear-gradient(90deg, var(--rose), #d4788a); }
+    .link-card-body { padding: 28px 28px 24px; }
+    .link-card-icon { font-size: 1.8em; margin-bottom: 14px; display: block; }
+    .link-card h3 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.12em; font-weight: 700;
+      color: var(--ink); margin-bottom: 10px; line-height: 1.35;
+    }
+    .link-card p {
+      font-size: 0.86em; color: var(--ink-soft);
+      line-height: 1.75; font-weight: 300; margin-bottom: 18px;
+    }
+    .link-card-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8em; font-weight: 500;
+      padding: 7px 14px; border-radius: 8px;
+      border: 1.5px solid;
+      transition: background 0.2s;
+    }
+    .link-card-cta.amber { color: var(--amber); border-color: rgba(160,82,45,0.35); }
+    .link-card-cta.teal  { color: var(--teal);  border-color: rgba(44,155,138,0.35); }
+    .link-card-cta.indigo{ color: var(--indigo);border-color: rgba(74,111,165,0.35); }
+    .link-card-cta.rose  { color: var(--rose);  border-color: rgba(192,86,106,0.35); }
+    .link-card:hover .link-card-cta.amber { background: var(--amber-light); }
+    .link-card:hover .link-card-cta.teal  { background: var(--teal-light); }
+    .link-card:hover .link-card-cta.indigo{ background: var(--indigo-light); }
+    .link-card:hover .link-card-cta.rose  { background: var(--rose-light); }
+
+    /* ── TIMELINE ── */
+    .timeline { margin: 0; padding: 0; list-style: none; }
+    .timeline-item {
+      display: flex; gap: 20px;
+      padding-bottom: 28px; position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item:last-child .tl-line { display: none; }
+    .tl-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+    .tl-dot {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1em; flex-shrink: 0;
+      border: 2px solid rgba(160,82,45,0.2);
+      background: var(--amber-light);
+    }
+    .tl-line { flex: 1; width: 2px; background: var(--border); margin-top: 6px; }
+    .tl-content { flex: 1; padding-top: 6px; }
+    .tl-time {
+      font-size: 0.7em; font-weight: 600; color: var(--amber);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;
+    }
+    .tl-title {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1em; font-weight: 700; color: var(--ink);
+      margin-bottom: 6px; line-height: 1.35;
+    }
+    .tl-desc { font-size: 0.86em; color: var(--ink-soft); font-weight: 300; line-height: 1.75; }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: linear-gradient(135deg, #1a1008 0%, #2a1a0e 100%);
+      border-radius: 20px; padding: 40px 44px;
+      margin-top: 0; position: relative; overflow: hidden;
+    }
+    .callout::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,121,74,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .callout h3 {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.5em; color: white; font-weight: 400;
+      margin-bottom: 12px; font-style: italic;
+    }
+    .callout p {
+      font-size: 0.92em; color: rgba(255,255,255,0.6);
+      line-height: 1.9; font-weight: 300; max-width: 560px;
+    }
+    .callout-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .callout-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.84em; font-weight: 500;
+      padding: 10px 20px; border-radius: 10px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .callout-btn.primary {
+      background: var(--amber); color: white;
+      border: 2px solid var(--amber);
+    }
+    .callout-btn.primary:hover { background: var(--amber-mid); border-color: var(--amber-mid); }
+    .callout-btn.ghost {
+      background: transparent; color: rgba(255,255,255,0.65);
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .callout-btn.ghost:hover { background: rgba(255,255,255,0.08); color: white; }
+
+    /* ── RESOURCE LIST ── */
+    .resource-list { display: flex; flex-direction: column; gap: 12px; }
+    .resource-item {
+      display: flex; align-items: center; gap: 16px;
+      background: white; border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 18px 22px;
+      text-decoration: none; color: inherit;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .resource-item:hover { transform: translateX(4px); box-shadow: var(--shadow-hover); }
+    .resource-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2em; flex-shrink: 0;
+    }
+    .resource-icon.amber-bg { background: var(--amber-light); }
+    .resource-icon.teal-bg  { background: var(--teal-light); }
+    .resource-icon.indigo-bg{ background: var(--indigo-light); }
+    .resource-icon.lime-bg  { background: #f0f7ea; }
+    .resource-text { flex: 1; }
+    .resource-title { font-size: 0.94em; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+    .resource-sub   { font-size: 0.78em; color: var(--muted); font-weight: 300; }
+    .resource-arrow { font-size: 1.1em; color: var(--muted); flex-shrink: 0; transition: transform 0.2s; }
+    .resource-item:hover .resource-arrow { transform: translateX(4px); color: var(--amber); }
+
+    /* ── SLIDE SECTION ── */
+    .slide-wrap-outer {
+      background: white;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .slide-meta {
+      display: flex; align-items: center; gap: 10px;
+      padding: 18px 24px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .slide-meta-dot {
+      display: flex; gap: 5px;
+    }
+    .slide-meta-dot span {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .slide-meta-dot span:nth-child(1) { background: #ff6058; }
+    .slide-meta-dot span:nth-child(2) { background: #ffbe2e; }
+    .slide-meta-dot span:nth-child(3) { background: #28cd41; }
+    .slide-meta-title {
+      font-size: 0.78em; color: var(--muted); font-weight: 400;
+      letter-spacing: 0.04em; flex: 1; text-align: center;
+    }
+    .slide-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.68em; font-weight: 500; color: var(--amber);
+      padding: 3px 10px; border-radius: 12px;
+      background: var(--amber-light);
+      border: 1px solid rgba(160,82,45,0.2);
+      letter-spacing: 0.06em;
+    }
+    .slide-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); display: inline-block; animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    .slide-iframe-wrap {
+      background: #000;
+      position: relative;
+    }
+    .slide-iframe-wrap iframe {
+      display: block; width: 100%;
+      aspect-ratio: 1280 / 749;
+      height: auto; border: none;
+    }
+    .slide-footer {
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border);
+      gap: 12px; flex-wrap: wrap;
+    }
+    .slide-footer-note {
+      font-size: 0.76em; color: var(--muted); font-weight: 300;
+    }
+    .slide-fullscreen-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.76em; font-weight: 500; color: var(--amber);
+      text-decoration: none;
+      padding: 6px 13px; border-radius: 8px;
+      border: 1.5px solid rgba(160,82,45,0.3);
+      background: var(--amber-light);
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .slide-fullscreen-btn:hover { background: #fae9d8; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px; text-align: center;
+      font-size: 0.82em; color: var(--muted); letter-spacing: 0.03em;
+    }
+    footer .footer-brand { font-family: "DM Serif Display", serif; font-style: italic; color: var(--ink-soft); font-size: 1.1em; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .animate { animation: fadeUp 0.6s ease both; }
+    .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.15s; }
+    .d3 { animation-delay: 0.25s; } .d4 { animation-delay: 0.35s; }
+    .d5 { animation-delay: 0.45s; } .d6 { animation-delay: 0.55s; }
+
+    @media (max-width: 600px) {
+      .intro-block { padding: 28px 22px; }
+      .stat-row { grid-template-columns: 1fr; gap: 12px; }
+      .callout { padding: 28px 22px; }
+      .link-card-body { padding: 22px 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-bg"></div>
+    <div class="header-particles"></div>
+    <div class="smoke-deco"></div>
+    <a class="back-link" href="index.html">← 返回首頁</a>
+    <div class="header-badge">Smoking Cessation · 戒菸衛教</div>
+    <h1>
+      你抽的不是煙<br>
+      <span class="italic">是</span><span class="highlight">未來的自己</span>
+    </h1>
+    <p class="header-quote">每一口吸進去的，都是借來的時間。<br>讓數據與故事，陪你做這個決定。</p>
+    <div class="header-line"></div>
+  </header>
+
+  <div class="container">
+
+    <!-- ── 關於菸害 ── -->
+    <div class="section-label">關於菸草與健康</div>
+
+    <div class="intro-block animate d1">
+      <p class="lead">菸草，是全球最大的可預防死因。</p>
+      <p>每年全球有超過 <strong>800 萬人</strong>死於吸菸相關疾病——其中包括約 120 萬名從未吸菸的二手煙受害者。在台灣，菸害每年奪走約 <strong>2 萬條生命</strong>，佔所有死亡人數的一成以上。</p>
+      <p>菸草燃燒時產生超過 <strong>7,000 種化學物質</strong>，其中至少 <strong>70 種</strong>已被確認為致癌物。從口腔、喉嚨、肺部，到心臟、血管、腎臟、膀胱——幾乎沒有一個器官能在長期吸菸下倖免。</p>
+      <p>但也有一個事實同樣重要：<strong>戒菸，任何時候都不嫌晚。</strong>即使吸了幾十年，戒菸後身體都會開始修復。有些改變，從放下菸的那一分鐘就已經悄悄開始了。</p>
+
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-num">20<span style="font-size:0.5em;color:var(--muted)">分鐘</span></div>
+          <div class="stat-desc">戒菸後心率與血壓<br>開始恢復正常</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">1<span style="font-size:0.5em;color:var(--muted)">年後</span></div>
+          <div class="stat-desc">冠心病風險<br>降至吸菸者的一半</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">15<span style="font-size:0.5em;color:var(--muted)">年後</span></div>
+          <div class="stat-desc">心臟病風險<br>接近從未吸菸者</div>
+        </div>
+      </div>
+
+      <p>數字背後，是真實發生在每個人體內的生理轉變。戒菸，不只是一個決定，更是一場身體自我修復的旅程。</p>
+    </div>
+
+    <!-- ── 戒菸後的時間軸 ── -->
+    <div class="section-gap"></div>
+    <div class="section-label">戒菸後，身體發生了什麼</div>
+
+    <div class="intro-block animate d2">
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-dot">⏱</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-time">20 分鐘</div>
+            <div class="tl-title">心率與血壓開始下降</div>
+            <div class="tl-desc">尼古丁刺激交感神經的效應消退，心跳趨緩，末梢血管開始舒張，手腳逐漸回暖。</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-dot">🌬</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-time">12 小時</div>
+            <div class="tl-title">血中一氧化碳降至正常</div>
+            <div class="tl-desc">菸燃燒產生的 CO 佔據血紅素的位置，讓氧氣無法有效運輸。12 小時後，血氧濃度恢復正常，身體細胞終於能喘口氣。</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-dot">💨</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-time">2–12 週</div>
+            <div class="tl-title">肺功能與循環改善</div>
+            <div class="tl-desc">走路不再那麼喘，爬樓梯不再氣喘吁吁。這段期間肺部纖毛開始修復，清除痰液的能力逐漸恢復。</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-dot">🧬</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-time">1 年</div>
+            <div class="tl-title">冠心病風險減半</div>
+            <div class="tl-desc">戒菸滿一年，罹患冠狀動脈心臟病的風險降低至吸菸者的一半。這不是比喻，是可以在臨床研究中測量到的真實數字。</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="tl-left">
+            <div class="tl-dot">🎯</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-time">5–15 年</div>
+            <div class="tl-title">中風、癌症風險持續下降</div>
+            <div class="tl-desc">中風風險在 5 年內可降至從未吸菸者的水準。口腔癌、喉癌等與菸草高度相關的癌症風險也顯著下降。身體在努力地把時間還給你。</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ── 衛教資源 ── -->
+    <div class="section-gap"></div>
+    <div class="section-label">戒菸衛教資源</div>
+
+    <div class="link-grid animate d3">
+      <a class="link-card" href="QuitSmoking/QuitSmoking.html">
+        <div class="link-card-accent amber"></div>
+        <div class="link-card-body">
+          <span class="link-card-icon">📖</span>
+          <h3>給自己一個機會</h3>
+          <p>從醫師的診間視角出發，以真實案例與數據，陪你重新認識菸草對身體的長遠影響。適合分享給還在猶豫的人。</p>
+          <div class="link-card-cta amber">閱讀故事 →</div>
+        </div>
+      </a>
+      <a class="link-card" href="https://cgmherlink-hub.github.io/QuitSmoking/" target="_blank" rel="noopener noreferrer">
+        <div class="link-card-accent teal"></div>
+        <div class="link-card-body">
+          <span class="link-card-icon">🌿</span>
+          <h3>戒菸衛教網頁</h3>
+          <p>完整的戒菸衛教資訊平台，涵蓋戒菸方法、尼古丁替代療法、戒斷症狀處理，以及求助管道與資源整合。</p>
+          <div class="link-card-cta teal">前往網頁 ↗</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- ── 政府與公益資源 ── -->
+    <div class="section-gap"></div>
+    <div class="section-label">台灣官方戒菸資源</div>
+
+    <div class="resource-list animate d4">
+      <a class="resource-item" href="https://www.hpa.gov.tw/Pages/List.aspx?nodeid=221" target="_blank" rel="noopener noreferrer">
+        <div class="resource-icon amber-bg">🏥</div>
+        <div class="resource-text">
+          <div class="resource-title">國民健康署 — 戒菸專區</div>
+          <div class="resource-sub">戒菸政策、服務據點查詢、菸害統計資料</div>
+        </div>
+        <div class="resource-arrow">→</div>
+      </a>
+      <a class="resource-item" href="tel:0800-636363">
+        <div class="resource-icon teal-bg">📞</div>
+        <div class="resource-text">
+          <div class="resource-title">戒菸專線 0800-636363</div>
+          <div class="resource-sub">免費諮詢，由受過專業訓練的戒菸衛教師提供一對一電話服務</div>
+        </div>
+        <div class="resource-arrow">→</div>
+      </a>
+      <a class="resource-item" href="https://www.bhp.mohw.gov.tw/HtmlPage/quit_smoke.html" target="_blank" rel="noopener noreferrer">
+        <div class="resource-icon indigo-bg">💊</div>
+        <div class="resource-text">
+          <div class="resource-title">健保戒菸治療計畫</div>
+          <div class="resource-sub">透過健保補助，至合格醫療機構接受戒菸藥物與諮詢，大幅降低自費負擔</div>
+        </div>
+        <div class="resource-arrow">→</div>
+      </a>
+      <a class="resource-item" href="https://quit.hpa.gov.tw/" target="_blank" rel="noopener noreferrer">
+        <div class="resource-icon lime-bg">📱</div>
+        <div class="resource-text">
+          <div class="resource-title">戒菸就贏線上服務平台</div>
+          <div class="resource-sub">線上登記戒菸、追蹤進度、查詢附近戒菸服務院所</div>
+        </div>
+        <div class="resource-arrow">→</div>
+      </a>
+    </div>
+
+    <!-- ── 衛教投影片 ── -->
+    <div class="section-gap"></div>
+    <div class="section-label">衛教投影片</div>
+
+    <div class="slide-wrap-outer animate d5">
+      <div class="slide-meta">
+        <div class="slide-meta-dot">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="slide-meta-title">你抽的不是煙，是未來的自己 — 戒菸衛教簡報</div>
+        <div class="slide-badge">自動播放</div>
+      </div>
+      <div class="slide-iframe-wrap">
+        <iframe
+          src="https://docs.google.com/presentation/d/e/2PACX-1vQWYhCPC9Go_adFjeM-1tjZMOguMZZ4Z8Vw_9g8lGS_hipv2ruXDXIwliACtzD8UQ/pubembed?start=true&loop=true&delayms=3000"
+          frameborder="0"
+          allowfullscreen="true"
+          mozallowfullscreen="true"
+          webkitallowfullscreen="true"
+        ></iframe>
+      </div>
+      <div class="slide-footer">
+        <span class="slide-footer-note">📽 每 3 秒自動換頁 · 循環播放 · 可點擊右下角全螢幕觀看</span>
+        <a class="slide-fullscreen-btn"
+           href="https://docs.google.com/presentation/d/e/2PACX-1vQWYhCPC9Go_adFjeM-1tjZMOguMZZ4Z8Vw_9g8lGS_hipv2ruXDXIwliACtzD8UQ/pub?start=true&loop=true&delayms=3000"
+           target="_blank" rel="noopener noreferrer">
+          ⛶ 開啟全螢幕版
+        </a>
+      </div>
+    </div>
+
+    <!-- ── 結語 CTA ── -->
+    <div class="section-gap"></div>
+    <div class="callout animate d6">
+      <h3>"The best time to quit was years ago.<br>The second best time is now."</h3>
+      <p>戒菸從來不是意志力的比賽，而是一場需要知識、工具與支持的旅程。無論你今天吸的第幾年，身體都在等著你給它這個機會。</p>
+      <div class="callout-links">
+        <a class="callout-btn primary" href="QuitSmoking/QuitSmoking.html">閱讀戒菸故事 →</a>
+        <a class="callout-btn ghost" href="https://cgmherlink-hub.github.io/QuitSmoking/" target="_blank" rel="noopener noreferrer">前往衛教網頁 ↗</a>
+        <a class="callout-btn ghost" href="index.html">← 返回首頁</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-brand">Dr. Jimmy 診間故事集</div>
+    <div style="margin-top:6px">© 2026 · 用醫學說故事 · 內容僅供衛教參考，不替代個人醫療建議</div>
+  </footer>
+</body>
+</html>
 </html>
