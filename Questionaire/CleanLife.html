@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>純淨生活 反直覺測驗</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 30px; line-height: 1.6; }
+  .question { margin-bottom: 25px; }
+  .result { margin-top: 10px; font-weight: bold; }
+  button { margin-top: 20px; padding: 10px 20px; }
+</style>
+</head>
+<body>
 
+<h1>純淨生活：反直覺測驗</h1>
+<p>請選擇你認為最正確的答案：</p>
+
+<form id="quizForm">
+
+<div class="question">
+  <p>1️⃣ 壓力來時，最健康的第一反應是？</p>
+  <input type="radio" name="q1" value="A"> A. 抽一根讓自己冷靜<br>
+  <input type="radio" name="q1" value="B"> B. 忍住情緒不去想<br>
+  <input type="radio" name="q1" value="C"> C. 覺察情緒再選擇行動<br>
+  <input type="radio" name="q1" value="D"> D. 找人抱怨發洩<br>
+  <div id="r1" class="result"></div>
+</div>
+
+<div class="question">
+  <p>2️⃣ 哪種情境最容易復抽？</p>
+  <input type="radio" name="q2" value="A"> A. 工作壓力大<br>
+  <input type="radio" name="q2" value="B"> B. 放鬆聚餐時<br>
+  <input type="radio" name="q2" value="C"> C. 睡眠不足<br>
+  <input type="radio" name="q2" value="D"> D. 戒菸一個月<br>
+  <div id="r2" class="result"></div>
+</div>
+
+<div class="question">
+  <p>3️⃣ 關於尼古丁依賴，下列何者正確？</p>
+  <input type="radio" name="q3" value="A"> A. 靠意志力即可控制<br>
+  <input type="radio" name="q3" value="B"> B. 只是心理問題<br>
+  <input type="radio" name="q3" value="C"> C. 生理＋心理成癮<br>
+  <input type="radio" name="q3" value="D"> D. 減少抽就沒成癮<br>
+  <div id="r3" class="result"></div>
+</div>
+
+<div class="question">
+  <p>4️⃣ 純淨生活不包含哪一項？</p>
+  <input type="radio" name="q4" value="A"> A. 遠離有害物質<br>
+  <input type="radio" name="q4" value="B"> B. 支持性社交圈<br>
+  <input type="radio" name="q4" value="C"> C. 完全沒有壓力<br>
+  <input type="radio" name="q4" value="D"> D. 健康調節壓力<br>
+  <div id="r4" class="result"></div>
+</div>
+
+<div class="question">
+  <p>5️⃣ 降低復抽最有效策略？</p>
+  <input type="radio" name="q5" value="A"> A. 靠意志力<br>
+  <input type="radio" name="q5" value="B"> B. 避開壓力<br>
+  <input type="radio" name="q5" value="C"> C. 環境＋替代行為<br>
+  <input type="radio" name="q5" value="D"> D. 偶爾抽一根<br>
+  <div id="r5" class="result"></div>
+</div>
+
+<button type="button" onclick="checkAnswers()">提交答案</button>
+
+</form>
+
+<script>
+function checkAnswers() {
+  const answers = {
+    q1: "C",
+    q2: "B",
+    q3: "C",
+    q4: "C",
+    q5: "C"
+  };
+
+  const explanations = {
+    q1: "重點在覺察與選擇，而不是自動反應",
+    q2: "放鬆與社交情境最容易讓人破戒",
+    q3: "成癮同時包含生理與心理機制",
+    q4: "純淨生活不是沒有壓力，而是能健康處理壓力",
+    q5: "長期成功來自環境設計與替代行為"
+  };
+
+  for (let q in answers) {
+    let selected = document.querySelector(`input[name=${q}]:checked`);
+    let resultDiv = document.getElementById("r" + q[1]);
+
+    if (!selected) {
+      resultDiv.innerHTML = "⚠️ 請作答";
+      continue;
+    }
+
+    if (selected.value === answers[q]) {
+      resultDiv.innerHTML = "✅ 正確！ " + explanations[q];
+    } else {
+      resultDiv.innerHTML = "❌ 錯誤！ " + explanations[q];
+    }
+  }
+}
+</script>
+
+</body>
+</html>
