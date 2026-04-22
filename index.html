@@ -205,6 +205,8 @@
       --rose-light: #fdf0f2;
       --lime: #5a8a3c;
       --lime-light: #f0f7ea;
+      --purple: #7c5cbf;
+      --purple-light: #f3f0fb;
       --shadow-soft: 0 4px 20px rgba(26,26,46,0.06);
       --shadow-hover: 0 16px 40px rgba(26,26,46,0.13);
     }
@@ -342,7 +344,7 @@
     }
 
     /* ── LINK CARDS ── */
-    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
     .link-card {
       display: block; text-decoration: none;
       background: white; border-radius: 18px;
@@ -357,6 +359,7 @@
     .link-card-accent.teal  { background: linear-gradient(90deg, var(--teal), #48b4a0); }
     .link-card-accent.indigo{ background: linear-gradient(90deg, var(--indigo), #6a8fc5); }
     .link-card-accent.rose  { background: linear-gradient(90deg, var(--rose), #d4788a); }
+    .link-card-accent.purple{ background: linear-gradient(90deg, var(--purple), #a07fe0); }
     .link-card-body { padding: 28px 28px 24px; }
     .link-card-icon { font-size: 1.8em; margin-bottom: 14px; display: block; }
     .link-card h3 {
@@ -379,10 +382,79 @@
     .link-card-cta.teal  { color: var(--teal);  border-color: rgba(44,155,138,0.35); }
     .link-card-cta.indigo{ color: var(--indigo);border-color: rgba(74,111,165,0.35); }
     .link-card-cta.rose  { color: var(--rose);  border-color: rgba(192,86,106,0.35); }
+    .link-card-cta.purple{ color: var(--purple);border-color: rgba(124,92,191,0.35); }
     .link-card:hover .link-card-cta.amber { background: var(--amber-light); }
     .link-card:hover .link-card-cta.teal  { background: var(--teal-light); }
     .link-card:hover .link-card-cta.indigo{ background: var(--indigo-light); }
     .link-card:hover .link-card-cta.rose  { background: var(--rose-light); }
+    .link-card:hover .link-card-cta.purple{ background: var(--purple-light); }
+
+    /* ── FEATURED CARD (高壓力男性診斷) ── */
+    .featured-card {
+      display: block; text-decoration: none;
+      background: white; border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 0.28s cubic-bezier(.22,.68,0,1.2), box-shadow 0.28s ease;
+      position: relative;
+      margin-top: 20px;
+    }
+    .featured-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .featured-card-accent {
+      height: 5px;
+      background: linear-gradient(90deg, #1a1008, #7c5cbf, #c0566a);
+    }
+    .featured-card-body {
+      padding: 28px 32px 26px;
+      display: flex; align-items: flex-start; gap: 22px;
+    }
+    .featured-card-left { flex-shrink: 0; }
+    .featured-card-badge {
+      width: 58px; height: 58px; border-radius: 16px;
+      background: linear-gradient(135deg, #2a1a3e 0%, #4a2c6e 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7em;
+      box-shadow: 0 4px 14px rgba(124,92,191,0.3);
+    }
+    .featured-card-right { flex: 1; }
+    .featured-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.68em; font-weight: 600; letter-spacing: 0.12em;
+      color: var(--purple); text-transform: uppercase;
+      padding: 3px 10px; border-radius: 10px;
+      background: var(--purple-light);
+      border: 1px solid rgba(124,92,191,0.25);
+      margin-bottom: 10px;
+    }
+    .featured-tag::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--purple); display: inline-block;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    .featured-card-right h3 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.18em; font-weight: 700;
+      color: var(--ink); margin-bottom: 10px; line-height: 1.35;
+    }
+    .featured-card-right p {
+      font-size: 0.86em; color: var(--ink-soft);
+      line-height: 1.8; font-weight: 300; margin-bottom: 16px;
+    }
+    .featured-card-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.82em; font-weight: 600;
+      padding: 9px 18px; border-radius: 10px;
+      background: linear-gradient(135deg, #2a1a3e 0%, #7c5cbf 100%);
+      color: white; border: none;
+      box-shadow: 0 3px 12px rgba(124,92,191,0.3);
+      transition: all 0.2s;
+    }
+    .featured-card:hover .featured-card-cta {
+      box-shadow: 0 6px 20px rgba(124,92,191,0.45);
+      transform: translateX(2px);
+    }
 
     /* ── TIMELINE ── */
     .timeline { margin: 0; padding: 0; list-style: none; }
@@ -515,7 +587,6 @@
       letter-spacing: 0.06em;
     }
     .slide-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); display: inline-block; animation: pulse-dot 2s ease-in-out infinite; }
-    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
     .slide-iframe-wrap {
       background: #000;
       position: relative;
@@ -560,12 +631,14 @@
     .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.15s; }
     .d3 { animation-delay: 0.25s; } .d4 { animation-delay: 0.35s; }
     .d5 { animation-delay: 0.45s; } .d6 { animation-delay: 0.55s; }
+    .d7 { animation-delay: 0.65s; }
 
     @media (max-width: 600px) {
       .intro-block { padding: 28px 22px; }
       .stat-row { grid-template-columns: 1fr; gap: 12px; }
       .callout { padding: 28px 22px; }
       .link-card-body { padding: 22px 20px 18px; }
+      .featured-card-body { flex-direction: column; gap: 14px; }
     }
   </style>
 </head>
@@ -677,9 +750,9 @@
       </ul>
     </div>
 
-    <!-- ── 衛教資源 ── -->
+    <!-- ── 常用問卷 ── -->
     <div class="section-gap"></div>
-    <div class="section-label">戒菸衛教資源</div>
+    <div class="section-label">常用問卷</div>
 
     <div class="link-grid animate d3">
       <a class="link-card" href="QuitSmoking/QuitSmoking.html">
@@ -694,19 +767,35 @@
       <a class="link-card" href="https://cgmherlink-hub.github.io/QuitSmoking/" target="_blank" rel="noopener noreferrer">
         <div class="link-card-accent teal"></div>
         <div class="link-card-body">
-          <span class="link-card-icon">🌿</span>
-          <h3>戒菸衛教網頁</h3>
-          <p>完整的戒菸衛教資訊平台，涵蓋戒菸方法、尼古丁替代療法、戒斷症狀處理，以及求助管道與資源整合。</p>
-          <div class="link-card-cta teal">前往網頁 ↗</div>
+          <span class="link-card-icon">📋</span>
+          <h3>戒菸評估問卷</h3>
+          <p>透過標準化問卷評估尼古丁依賴程度、戒菸動機與準備度，協助醫師與個案共同規劃最適合的戒菸策略。</p>
+          <div class="link-card-cta teal">開始填寫 →</div>
         </div>
       </a>
     </div>
+
+    <!-- ── 高壓力男性戒菸成功率診斷 (Featured) ── -->
+    <a class="featured-card animate d4" href="Questionaire/HighPressureMaleSuccess.html">
+      <div class="featured-card-accent"></div>
+      <div class="featured-card-body">
+        <div class="featured-card-left">
+          <div class="featured-card-badge">💼</div>
+        </div>
+        <div class="featured-card-right">
+          <div class="featured-tag">新增問卷 · 男性專屬</div>
+          <h3>高壓力的男性戒菸成功率診斷</h3>
+          <p>針對工作壓力高、應酬頻繁、長期習慣以菸緩解壓力的男性設計。透過多維度評估壓力來源、依賴模式與心理韌性，預測戒菸成功機率並提供個人化建議。</p>
+          <div class="featured-card-cta">立即進行診斷 →</div>
+        </div>
+      </div>
+    </a>
 
     <!-- ── 政府與公益資源 ── -->
     <div class="section-gap"></div>
     <div class="section-label">台灣官方戒菸資源</div>
 
-    <div class="resource-list animate d4">
+    <div class="resource-list animate d5">
       <a class="resource-item" href="https://www.hpa.gov.tw/Pages/List.aspx?nodeid=221" target="_blank" rel="noopener noreferrer">
         <div class="resource-icon amber-bg">🏥</div>
         <div class="resource-text">
@@ -745,7 +834,7 @@
     <div class="section-gap"></div>
     <div class="section-label">衛教投影片</div>
 
-    <div class="slide-wrap-outer animate d5">
+    <div class="slide-wrap-outer animate d6">
       <div class="slide-meta">
         <div class="slide-meta-dot">
           <span></span><span></span><span></span>
@@ -774,7 +863,7 @@
 
     <!-- ── 結語 CTA ── -->
     <div class="section-gap"></div>
-    <div class="callout animate d6">
+    <div class="callout animate d7">
       <h3>"The best time to quit was years ago.<br>The second best time is now."</h3>
       <p>戒菸從來不是意志力的比賽，而是一場需要知識、工具與支持的旅程。無論你今天吸的第幾年，身體都在等著你給它這個機會。</p>
       <div class="callout-links">
@@ -791,5 +880,4 @@
     <div style="margin-top:6px">© 2026 · 用醫學說故事 · 內容僅供衛教參考，不替代個人醫療建議</div>
   </footer>
 </body>
-</html>
 </html>
