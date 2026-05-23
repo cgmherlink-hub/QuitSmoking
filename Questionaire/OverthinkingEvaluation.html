@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>過度思維自我檢測量表</title>
+<style>
+    body {
+        font-family: Arial, "Noto Sans TC", sans-serif;
+        background: #f6f7fb;
+        color: #222;
+        line-height: 1.6;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+    h1 { color: #2c3e50; }
+    h2 { margin-top: 30px; }
+    .question {
+        margin: 10px 0;
+        padding: 8px;
+        border-bottom: 1px solid #eee;
+    }
+    .score-box {
+        background: #eef3ff;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #4a6cf7;
+        color: white;
+        cursor: pointer;
+    }
+    .result {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+</style>
+</head>
 
+<body>
+<div class="container">
+
+<h1>🧠 過度思維自我檢測量表 v2.0</h1>
+
+<p>請依直覺選擇：<b>否 = 0分 / 偶爾 = 1分 / 是 = 2分</b></p>
+
+<div id="questions"></div>
+
+<button onclick="calculateScore()">計算結果</button>
+
+<div class="score-box">
+    <div id="score"></div>
+    <div id="result"></div>
+</div>
+
+<h2>📊 四大核心維度</h2>
+<ul>
+<li>🔮 災難化思考：還沒發生就先預設最壞</li>
+<li>🔁 反芻思維：事情結束但腦袋停不下來</li>
+<li>🎯 完美主義：永遠覺得不夠好</li>
+<li>⚖️ 自我批判：總覺得是自己的錯</li>
+</ul>
+
+</div>
+
+<script>
+const questions = [
+"事情還沒發生，你會先想到最壞結果嗎？",
+"你覺得再想一下會更安全嗎？",
+"你很難在『已經夠好』時停下來嗎？",
+"你會為未來事情先焦慮嗎？",
+"你常反覆懷疑自己的決定嗎？",
+"休息時腦袋反而更忙嗎？",
+"你很難接受『夠用就好』嗎？",
+"你會把別人期待變成自己的責任嗎？",
+"你覺得不多想就會出事嗎？",
+"放鬆時會覺得不負責任嗎？",
+"你會反覆回想過去對話嗎？",
+"做完決定仍持續焦慮嗎？",
+"你覺得再想一次會更好嗎？",
+"小決定也讓你很耗能嗎？",
+"你很難快速做決定嗎？",
+"你會避免後悔而拖延嗎？",
+"你在選擇間常卡住嗎？",
+"你覺得做得好比完成更重要嗎？",
+"你難以交出不完美成果嗎？",
+"你會不斷提高標準嗎？",
+"你很難接受80分嗎？",
+"你會把失誤視為失敗嗎？",
+"你常責備自己嗎？",
+"出錯時先怪自己嗎？",
+"你很難原諒自己嗎？",
+"你覺得自己應該更好嗎？",
+"成功也很難安心嗎？",
+"你腦中有嚴格內在聲音嗎？",
+"你很難覺得已經夠了嗎？",
+"你覺得想得多就能避免問題嗎？"
+];
+
+const container = document.getElementById("questions");
+
+questions.forEach((q, i) => {
+    container.innerHTML += `
+    <div class="question">
+        ${i+1}. ${q}<br>
+        <select id="q${i}">
+            <option value="0">否</option>
+            <option value="1">偶爾</option>
+            <option value="2">是</option>
+        </select>
+    </div>`;
+});
+
+function calculateScore() {
+    let score = 0;
+    for (let i = 0; i < questions.length; i++) {
+        score += parseInt(document.getElementById("q"+i).value);
+    }
+
+    document.getElementById("score").innerText = "總分：" + score + " / 60";
+
+    let result = "";
+
+    if (score <= 10) {
+        result = "🟢 低過度思維：思考健康運作";
+    } else if (score <= 25) {
+        result = "🟡 輕度過度思維：偶爾卡住但可恢復";
+    } else if (score <= 40) {
+        result = "🟠 中度過度思維：思考開始變壓力來源";
+    } else {
+        result = "🔴 高度過度思維：自動焦慮系統啟動中";
+    }
+
+    document.getElementById("result").innerText = result;
+}
+</script>
+
+</body>
+</html>
