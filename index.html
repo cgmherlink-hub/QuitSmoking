@@ -1,184 +1,4 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <!-- ── Sticky Nav Bar ── -->
-<nav class="top-nav">
-  <div class="nav-left">
-    <a href="https://d8600010-gmail.github.io/DRJimmyHealthExaminationMedicalEducation/" class="nav-link">🏠 <span>回到首頁</span></a>
-    <a href="javascript:history.back()" class="nav-link">⬅️ <span>回到上一頁</span></a>
-  </div>
-  <div class="visitor-badge">
-    <span class="vb-label">👥 今日到訪</span>
-    <span class="vb-count" id="today-count">—</span>
-    <span class="vb-sub">累計 <span id="total-count">—</span> 人次</span>
-  </div>
-</nav>
-    
-   
-     </div>
- <!-- JimmyPhoto-2.png -->
-    <div style="text-align:center; margin-top: 30px;">
-        <img src="JimmyPhoto-2.png" alt="Jimmy 醫師" style="max-width:300px; width:100%; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
-        <p style="margin-top:10px; color:#555; font-weight:bold;">Jimmy 醫師</p>
-    </div>
-    <div style="text-align: center;">
-    <a href="https://deptcrc.ccu.edu.tw/index.php?option=module&lang=cht&task=pageinfo&id=207&index=1">新興毒品</a>
-    <br>
-    <a href="https://www.health.taichung.gov.tw/26198/26327/1961359/1961388/1961391/2838663">依托咪酯</a>
-</div><div style="text-align: center;">
-    <a href="https://www.mohw.gov.tw/fp-16-38589-1.html">芬太尼(吩坦尼，fentanyl)</a>
-    <br>
-    <a href="https://www.health.taichung.gov.tw/26198/26327/1961359/1961388/1961391/2838663">依托咪酯</a>
-</div>
-
-<!-- 純淨生活 Card -->
-<div style="text-align: center; margin: 20px auto; max-width: 300px;">
-    <a href="Questionaire/CleanLife.html" style="
-        display: block;
-        background: linear-gradient(135deg, #6dd5ed, #2193b0);
-        color: white;
-        text-decoration: none;
-        padding: 20px 30px;
-        border-radius: 14px;
-        box-shadow: 0 4px 15px rgba(33,147,176,0.35);
-        font-size: 1.2rem;
-        font-weight: bold;
-        letter-spacing: 0.05em;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    "
-    onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(33,147,176,0.45)'"
-    onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(33,147,176,0.35)'"
-    >
-        🌿 純淨生活
-    </a>
-</div>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerPoint 投影片瀏覽器</title>
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
-    
-    <style>
-        /* 基本樣式 reset */
-        body, h1 { margin: 0; padding: 0; }
-        
-        body {
-            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
-            background-color: #f4f4f7;
-            color: #333;
-            padding: 20px;
-        }
-
-        /* 標題區域 */
-        header {
-            text-align: center;
-            padding: 30px 0;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8rem;
-        }
-
-        .subtitle {
-            color: #7f8c8d;
-            margin-top: 5px;
-            font-size: 0.9rem;
-        }
-
-        /* 相簿網格佈局 (CSS Grid) */
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        /* 單個圖片項目的樣式 */
-        .gallery-item {
-            background: white;
-            padding: 8px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-decoration: none;
-            display: block;
-        }
-
-        /* 滑鼠懸停效果 */
-        .gallery-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* 圖片本身樣式 */
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 4px;
-        }
-
-        /* iframe 容器：響應式 16:9 */
-        .ppt-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 960px;
-            margin: 0 auto;
-            aspect-ratio: 16 / 9;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-            background: #000;
-        }
-
-        .ppt-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .mfp-counter {
-            font-family: sans-serif;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <h1>PowerPoint Presentation</h1>
-        <p class="subtitle">線上簡報瀏覽</p>
-    </header>
-
-    <!-- 內嵌 Office 簡報 -->
-    <div class="ppt-wrapper">
-        <iframe src="https://changgunguniversity-my.sharepoint.com/personal/d8600010_cgu_edu_tw/_layouts/15/Doc.aspx?sourcedoc={08631219-2176-48c6-9a0f-7e4d4dcf37f5}&amp;action=embedview&amp;wdAr=1.7777777777777777&amp;wdEaaCheck=1"
-            frameborder="0"
-            title="PowerPoint Viewer"
-            allowfullscreen>
-            這是 <a target="_blank" href="https://office.com/webapps">Office</a> 提供的內嵌 <a target="_blank" href="https://office.com">Microsoft Office</a> 簡報。
-        </iframe>
-    </div>
-
-    <!-- jimmyphoto.png -->
-    <div style="text-align:center; margin-top: 30px;">
-        <img src="jimmyphoto.png" alt="Jimmy 醫師" style="max-width:300px; width:100%; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
-        <p style="margin-top:10px; color:#555; font-weight:bold;">Jimmy 醫師</p>
-    </div>
-
-</div>
-
-
-
-</body>
-    <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
@@ -186,6 +6,7 @@
   <title>戒菸衛教 · Dr. Jimmy 診間故事集</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
   <style>
     :root {
       --cream: #faf8f3;
@@ -214,6 +35,32 @@
     html { scroll-behavior: smooth; }
     body { font-family: "Noto Sans TC", sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
 
+    /* ── Sticky Nav Bar ── */
+    .top-nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px;
+      background: rgba(250,248,243,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-left { display: flex; gap: 10px; }
+    .nav-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.82em; font-weight: 500; color: var(--ink-soft);
+      text-decoration: none; padding: 6px 12px; border-radius: 8px;
+      border: 1px solid var(--border); background: white;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-link:hover { background: var(--amber-light); color: var(--amber); }
+    .visitor-badge {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78em; color: var(--muted);
+    }
+    .vb-label { font-weight: 500; }
+    .vb-count { font-weight: 700; color: var(--amber); font-size: 1.1em; }
+    .vb-sub { color: var(--muted); }
+
     /* ── HEADER ── */
     header {
       position: relative;
@@ -233,14 +80,6 @@
         radial-gradient(ellipse 60% 50% at 15% 40%, rgba(160,82,45,0.35) 0%, transparent 60%),
         radial-gradient(ellipse 50% 60% at 85% 60%, rgba(200,121,74,0.2) 0%, transparent 55%),
         radial-gradient(ellipse 40% 40% at 55% 5%, rgba(192,86,106,0.12) 0%, transparent 50%);
-    }
-    .header-particles {
-      position: absolute; inset: 0;
-      background-image:
-        radial-gradient(circle 1px at 20% 30%, rgba(255,255,255,0.06) 0%, transparent 0%),
-        radial-gradient(circle 1px at 40% 70%, rgba(255,255,255,0.04) 0%, transparent 0%),
-        radial-gradient(circle 1px at 70% 20%, rgba(255,255,255,0.05) 0%, transparent 0%),
-        radial-gradient(circle 1px at 90% 80%, rgba(255,255,255,0.03) 0%, transparent 0%);
     }
     .smoke-deco {
       position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
@@ -389,7 +228,7 @@
     .link-card:hover .link-card-cta.rose  { background: var(--rose-light); }
     .link-card:hover .link-card-cta.purple{ background: var(--purple-light); }
 
-    /* ── FEATURED CARD (高壓力男性診斷) ── */
+    /* ── FEATURED CARD ── */
     .featured-card {
       display: block; text-decoration: none;
       background: white; border-radius: 18px;
@@ -565,12 +404,8 @@
       padding: 18px 24px 16px;
       border-bottom: 1px solid var(--border);
     }
-    .slide-meta-dot {
-      display: flex; gap: 5px;
-    }
-    .slide-meta-dot span {
-      width: 10px; height: 10px; border-radius: 50%;
-    }
+    .slide-meta-dot { display: flex; gap: 5px; }
+    .slide-meta-dot span { width: 10px; height: 10px; border-radius: 50%; }
     .slide-meta-dot span:nth-child(1) { background: #ff6058; }
     .slide-meta-dot span:nth-child(2) { background: #ffbe2e; }
     .slide-meta-dot span:nth-child(3) { background: #28cd41; }
@@ -587,10 +422,7 @@
       letter-spacing: 0.06em;
     }
     .slide-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); display: inline-block; animation: pulse-dot 2s ease-in-out infinite; }
-    .slide-iframe-wrap {
-      background: #000;
-      position: relative;
-    }
+    .slide-iframe-wrap { background: #000; position: relative; }
     .slide-iframe-wrap iframe {
       display: block; width: 100%;
       aspect-ratio: 1280 / 749;
@@ -602,9 +434,7 @@
       border-top: 1px solid var(--border);
       gap: 12px; flex-wrap: wrap;
     }
-    .slide-footer-note {
-      font-size: 0.76em; color: var(--muted); font-weight: 300;
-    }
+    .slide-footer-note { font-size: 0.76em; color: var(--muted); font-weight: 300; }
     .slide-fullscreen-btn {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 0.76em; font-weight: 500; color: var(--amber);
@@ -616,6 +446,18 @@
       white-space: nowrap;
     }
     .slide-fullscreen-btn:hover { background: #fae9d8; }
+
+    /* ── Doctor Photo ── */
+    .doctor-photo-wrap {
+      text-align: center; margin-top: 40px;
+    }
+    .doctor-photo-wrap img {
+      max-width: 200px; width: 100%; border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .doctor-photo-wrap p {
+      margin-top: 10px; color: #555; font-weight: bold; font-size: 0.9em;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -631,7 +473,7 @@
     .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.15s; }
     .d3 { animation-delay: 0.25s; } .d4 { animation-delay: 0.35s; }
     .d5 { animation-delay: 0.45s; } .d6 { animation-delay: 0.55s; }
-    .d7 { animation-delay: 0.65s; }
+    .d7 { animation-delay: 0.65s; } .d8 { animation-delay: 0.75s; }
 
     @media (max-width: 600px) {
       .intro-block { padding: 28px 22px; }
@@ -639,13 +481,28 @@
       .callout { padding: 28px 22px; }
       .link-card-body { padding: 22px 20px 18px; }
       .featured-card-body { flex-direction: column; gap: 14px; }
+      .nav-link span { display: none; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ── Sticky Nav Bar ── -->
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a href="https://d8600010-gmail.github.io/DRJimmyHealthExaminationMedicalEducation/" class="nav-link">🏠 <span>回到首頁</span></a>
+      <a href="javascript:history.back()" class="nav-link">⬅️ <span>回到上一頁</span></a>
+    </div>
+    <div class="visitor-badge">
+      <span class="vb-label">👥 今日到訪</span>
+      <span class="vb-count" id="today-count">—</span>
+      <span class="vb-sub">累計 <span id="total-count">—</span> 人次</span>
+    </div>
+  </nav>
+
+  <!-- ── HEADER ── -->
   <header>
     <div class="header-bg"></div>
-    <div class="header-particles"></div>
     <div class="smoke-deco"></div>
     <a class="back-link" href="index.html">← 返回首頁</a>
     <div class="header-badge">Smoking Cessation · 戒菸衛教</div>
@@ -775,8 +632,42 @@
       </a>
     </div>
 
+    <!-- ── 診間故事 ── -->
+    <div class="section-gap"></div>
+    <div class="section-label animate d4">診間故事</div>
+
+    <div class="link-grid animate d4">
+      <a class="link-card" href="QuitSmokingStory/BeAnAudience.html">
+        <div class="link-card-accent indigo"></div>
+        <div class="link-card-body">
+          <span class="link-card-icon">🎭</span>
+          <h3>成為旁觀者</h3>
+          <p>當你置身事外，用旁觀者的視角看待自己的吸菸行為，往往會發現一些平時視而不見的真相。</p>
+          <div class="link-card-cta indigo">閱讀故事 →</div>
+        </div>
+      </a>
+      <a class="link-card" href="QuitSmokingStory/Overthinking.html">
+        <div class="link-card-accent rose"></div>
+        <div class="link-card-body">
+          <span class="link-card-icon">🌀</span>
+          <h3>過度思考的陷阱</h3>
+          <p>「再抽最後一根」、「等壓力小一點再戒」——那些說服自己繼續抽菸的念頭，是如何一次次讓你困在原地。</p>
+          <div class="link-card-cta rose">閱讀故事 →</div>
+        </div>
+      </a>
+      <a class="link-card" href="QuitSmokingStory/SurvivorshipBias.html">
+        <div class="link-card-accent purple"></div>
+        <div class="link-card-body">
+          <span class="link-card-icon">🎯</span>
+          <h3>倖存者偏誤</h3>
+          <p>「我阿公抽了一輩子活到九十歲」——這個故事你聽過嗎？讓我們談談為什麼這個邏輯，可能正在傷害你。</p>
+          <div class="link-card-cta purple">閱讀故事 →</div>
+        </div>
+      </a>
+    </div>
+
     <!-- ── 高壓力男性戒菸成功率診斷 (Featured) ── -->
-    <a class="featured-card animate d4" href="Questionaire/HighPressureMaleSuccess.html">
+    <a class="featured-card animate d5" href="Questionaire/HighPressureMaleSuccess.html">
       <div class="featured-card-accent"></div>
       <div class="featured-card-body">
         <div class="featured-card-left">
@@ -795,7 +686,7 @@
     <div class="section-gap"></div>
     <div class="section-label">台灣官方戒菸資源</div>
 
-    <div class="resource-list animate d5">
+    <div class="resource-list animate d6">
       <a class="resource-item" href="https://www.hpa.gov.tw/Pages/List.aspx?nodeid=221" target="_blank" rel="noopener noreferrer">
         <div class="resource-icon amber-bg">🏥</div>
         <div class="resource-text">
@@ -834,7 +725,7 @@
     <div class="section-gap"></div>
     <div class="section-label">衛教投影片</div>
 
-    <div class="slide-wrap-outer animate d6">
+    <div class="slide-wrap-outer animate d7">
       <div class="slide-meta">
         <div class="slide-meta-dot">
           <span></span><span></span><span></span>
@@ -861,9 +752,15 @@
       </div>
     </div>
 
+    <!-- ── Doctor Photo ── -->
+    <div class="doctor-photo-wrap animate d7">
+      <img src="jimmyphoto.png" alt="Jimmy 醫師">
+      <p>Jimmy 醫師</p>
+    </div>
+
     <!-- ── 結語 CTA ── -->
     <div class="section-gap"></div>
-    <div class="callout animate d7">
+    <div class="callout animate d8">
       <h3>"The best time to quit was years ago.<br>The second best time is now."</h3>
       <p>戒菸從來不是意志力的比賽，而是一場需要知識、工具與支持的旅程。無論你今天吸的第幾年，身體都在等著你給它這個機會。</p>
       <div class="callout-links">
@@ -879,5 +776,6 @@
     <div class="footer-brand">Dr. Jimmy 診間故事集</div>
     <div style="margin-top:6px">© 2026 · 用醫學說故事 · 內容僅供衛教參考，不替代個人醫療建議</div>
   </footer>
+
 </body>
 </html>
