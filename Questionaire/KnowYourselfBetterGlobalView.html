@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理解自己 | 戒菸自我探索問卷</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9f5e9 100%);
+            color: #333;
+        }
+        header {
+            background: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        h1 {
+            margin: 0 0 1rem;
+            font-size: 2.5rem;
+        }
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .card-header {
+            height: 160px;
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .card h3 {
+            margin: 0 0 0.8rem;
+            color: #1b5e20;
+        }
+        .card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 1.2rem;
+            padding: 12px 28px;
+            background: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #1b5e20;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌱 理解自己</h1>
+        <p class="subtitle">透過專業問卷，深入探索你的內心與習慣</p>
+    </header>
 
+    <div class="container">
+        <h2 style="text-align:center; color:#1b5e20;">選擇一份問卷，開始自我探索之旅</h2>
+        
+        <div class="cards">
+
+            <!-- 清新生活問卷 -->
+            <div class="card">
+                <div class="card-header">🌿</div>
+                <div class="card-body">
+                    <h3>清新生活評估</h3>
+                    <p>了解你目前的生活習慣與健康狀態，找出邁向清新生活的關鍵。</p>
+                    <a href="CleanLife.html" class="btn">開始測驗 →</a>
+                </div>
+            </div>
+
+            <!-- 高壓男性成功問卷 -->
+            <div class="card">
+                <div class="card-header">💪</div>
+                <div class="card-body">
+                    <h3>高壓男性成功指數</h3>
+                    <p>專為男性設計，評估你在工作壓力下維持健康與自律的能力。</p>
+                    <a href="HighPressureMaleSuccess.html" class="btn">開始測驗 →</a>
+                </div>
+            </div>
+
+            <!-- 過度思考評估 -->
+            <div class="card">
+                <div class="card-header">🧠</div>
+                <div class="card-body">
+                    <h3>過度思考評估</h3>
+                    <p>幫助你認識自己的思考模式，減少焦慮與內耗，找回內心平靜。</p>
+                    <a href="OverthinkingEvaluation.html" class="btn">開始測驗 →</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top: 4rem;">
+            <p style="font-size:1.1rem; color:#2e7d32;">
+                每一份問卷都能幫助你更了解自己，<br>
+                也讓戒菸之路走得更穩健。
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>QuitSmoking Project © 2026 | 幫助你找回更好的人生</p>
+    </footer>
+</body>
+</html>
