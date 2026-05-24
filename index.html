@@ -28,13 +28,16 @@
       --lime-light: #f0f7ea;
       --purple: #7c5cbf;
       --purple-light: #f3f0fb;
+      --forest: #3a7d44;
+      --forest-light: #eaf4ec;
+      --coral: #c45c3a;
+      --coral-light: #fdf1ee;
       --shadow-soft: 0 4px 20px rgba(26,26,46,0.06);
       --shadow-hover: 0 16px 40px rgba(26,26,46,0.13);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: "Noto Sans TC", sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
-
     /* ── Sticky Nav Bar ── */
     .top-nav {
       position: sticky; top: 0; z-index: 100;
@@ -60,7 +63,6 @@
     .vb-label { font-weight: 500; }
     .vb-count { font-weight: 700; color: var(--amber); font-size: 1.1em; }
     .vb-sub { color: var(--muted); }
-
     /* ── HEADER ── */
     header {
       position: relative;
@@ -127,7 +129,6 @@
       background: linear-gradient(90deg, var(--amber), var(--rose));
       margin: 24px auto 0; border-radius: 2px;
     }
-
     /* ── LAYOUT ── */
     .container { max-width: 860px; margin: 0 auto; padding: 60px 24px 90px; }
     .section-label {
@@ -137,7 +138,6 @@
     }
     .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .section-gap { margin-top: 52px; }
-
     /* ── INTRO PROSE ── */
     .intro-block {
       background: white; border-radius: 20px;
@@ -160,7 +160,6 @@
     }
     .intro-block p:last-child { margin-bottom: 0; }
     .intro-block p strong { font-weight: 500; color: var(--ink); }
-
     /* ── STAT ROW ── */
     .stat-row {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -181,7 +180,6 @@
       font-size: 0.78em; color: var(--ink-soft);
       font-weight: 400; line-height: 1.5;
     }
-
     /* ── LINK CARDS ── */
     .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
     .link-card {
@@ -194,11 +192,13 @@
     }
     .link-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
     .link-card-accent { height: 4px; }
-    .link-card-accent.amber { background: linear-gradient(90deg, var(--amber), var(--amber-mid)); }
-    .link-card-accent.teal  { background: linear-gradient(90deg, var(--teal), #48b4a0); }
-    .link-card-accent.indigo{ background: linear-gradient(90deg, var(--indigo), #6a8fc5); }
-    .link-card-accent.rose  { background: linear-gradient(90deg, var(--rose), #d4788a); }
-    .link-card-accent.purple{ background: linear-gradient(90deg, var(--purple), #a07fe0); }
+    .link-card-accent.amber  { background: linear-gradient(90deg, var(--amber), var(--amber-mid)); }
+    .link-card-accent.teal   { background: linear-gradient(90deg, var(--teal), #48b4a0); }
+    .link-card-accent.indigo { background: linear-gradient(90deg, var(--indigo), #6a8fc5); }
+    .link-card-accent.rose   { background: linear-gradient(90deg, var(--rose), #d4788a); }
+    .link-card-accent.purple { background: linear-gradient(90deg, var(--purple), #a07fe0); }
+    .link-card-accent.forest { background: linear-gradient(90deg, var(--forest), #5aad66); }
+    .link-card-accent.coral  { background: linear-gradient(90deg, var(--coral), #e07a58); }
     .link-card-body { padding: 28px 28px 24px; }
     .link-card-icon { font-size: 1.8em; margin-bottom: 14px; display: block; }
     .link-card h3 {
@@ -217,17 +217,20 @@
       border: 1.5px solid;
       transition: background 0.2s;
     }
-    .link-card-cta.amber { color: var(--amber); border-color: rgba(160,82,45,0.35); }
-    .link-card-cta.teal  { color: var(--teal);  border-color: rgba(44,155,138,0.35); }
-    .link-card-cta.indigo{ color: var(--indigo);border-color: rgba(74,111,165,0.35); }
-    .link-card-cta.rose  { color: var(--rose);  border-color: rgba(192,86,106,0.35); }
-    .link-card-cta.purple{ color: var(--purple);border-color: rgba(124,92,191,0.35); }
-    .link-card:hover .link-card-cta.amber { background: var(--amber-light); }
-    .link-card:hover .link-card-cta.teal  { background: var(--teal-light); }
-    .link-card:hover .link-card-cta.indigo{ background: var(--indigo-light); }
-    .link-card:hover .link-card-cta.rose  { background: var(--rose-light); }
-    .link-card:hover .link-card-cta.purple{ background: var(--purple-light); }
-
+    .link-card-cta.amber  { color: var(--amber);  border-color: rgba(160,82,45,0.35); }
+    .link-card-cta.teal   { color: var(--teal);   border-color: rgba(44,155,138,0.35); }
+    .link-card-cta.indigo { color: var(--indigo); border-color: rgba(74,111,165,0.35); }
+    .link-card-cta.rose   { color: var(--rose);   border-color: rgba(192,86,106,0.35); }
+    .link-card-cta.purple { color: var(--purple); border-color: rgba(124,92,191,0.35); }
+    .link-card-cta.forest { color: var(--forest); border-color: rgba(58,125,68,0.35); }
+    .link-card-cta.coral  { color: var(--coral);  border-color: rgba(196,92,58,0.35); }
+    .link-card:hover .link-card-cta.amber  { background: var(--amber-light); }
+    .link-card:hover .link-card-cta.teal   { background: var(--teal-light); }
+    .link-card:hover .link-card-cta.indigo { background: var(--indigo-light); }
+    .link-card:hover .link-card-cta.rose   { background: var(--rose-light); }
+    .link-card:hover .link-card-cta.purple { background: var(--purple-light); }
+    .link-card:hover .link-card-cta.forest { background: var(--forest-light); }
+    .link-card:hover .link-card-cta.coral  { background: var(--coral-light); }
     /* ── FEATURED CARD ── */
     .featured-card {
       display: block; text-decoration: none;
@@ -294,7 +297,6 @@
       box-shadow: 0 6px 20px rgba(124,92,191,0.45);
       transform: translateX(2px);
     }
-
     /* ── TIMELINE ── */
     .timeline { margin: 0; padding: 0; list-style: none; }
     .timeline-item {
@@ -323,7 +325,6 @@
       margin-bottom: 6px; line-height: 1.35;
     }
     .tl-desc { font-size: 0.86em; color: var(--ink-soft); font-weight: 300; line-height: 1.75; }
-
     /* ── CALLOUT BOX ── */
     .callout {
       background: linear-gradient(135deg, #1a1008 0%, #2a1a0e 100%);
@@ -363,7 +364,6 @@
       border: 2px solid rgba(255,255,255,0.2);
     }
     .callout-btn.ghost:hover { background: rgba(255,255,255,0.08); color: white; }
-
     /* ── RESOURCE LIST ── */
     .resource-list { display: flex; flex-direction: column; gap: 12px; }
     .resource-item {
@@ -381,16 +381,15 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1.2em; flex-shrink: 0;
     }
-    .resource-icon.amber-bg { background: var(--amber-light); }
-    .resource-icon.teal-bg  { background: var(--teal-light); }
-    .resource-icon.indigo-bg{ background: var(--indigo-light); }
-    .resource-icon.lime-bg  { background: #f0f7ea; }
+    .resource-icon.amber-bg  { background: var(--amber-light); }
+    .resource-icon.teal-bg   { background: var(--teal-light); }
+    .resource-icon.indigo-bg { background: var(--indigo-light); }
+    .resource-icon.lime-bg   { background: #f0f7ea; }
     .resource-text { flex: 1; }
     .resource-title { font-size: 0.94em; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
     .resource-sub   { font-size: 0.78em; color: var(--muted); font-weight: 300; }
     .resource-arrow { font-size: 1.1em; color: var(--muted); flex-shrink: 0; transition: transform 0.2s; }
     .resource-item:hover .resource-arrow { transform: translateX(4px); color: var(--amber); }
-
     /* ── SLIDE SECTION ── */
     .slide-wrap-outer {
       background: white;
@@ -446,7 +445,6 @@
       white-space: nowrap;
     }
     .slide-fullscreen-btn:hover { background: #fae9d8; }
-
     /* ── Doctor Photo ── */
     .doctor-photo-wrap {
       text-align: center; margin-top: 40px;
@@ -458,7 +456,6 @@
     .doctor-photo-wrap p {
       margin-top: 10px; color: #555; font-weight: bold; font-size: 0.9em;
     }
-
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -466,7 +463,6 @@
       font-size: 0.82em; color: var(--muted); letter-spacing: 0.03em;
     }
     footer .footer-brand { font-family: "DM Serif Display", serif; font-style: italic; color: var(--ink-soft); font-size: 1.1em; }
-
     /* ── ANIMATIONS ── */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
     .animate { animation: fadeUp 0.6s ease both; }
@@ -474,7 +470,6 @@
     .d3 { animation-delay: 0.25s; } .d4 { animation-delay: 0.35s; }
     .d5 { animation-delay: 0.45s; } .d6 { animation-delay: 0.55s; }
     .d7 { animation-delay: 0.65s; } .d8 { animation-delay: 0.75s; }
-
     @media (max-width: 600px) {
       .intro-block { padding: 28px 22px; }
       .stat-row { grid-template-columns: 1fr; gap: 12px; }
@@ -486,7 +481,6 @@
   </style>
 </head>
 <body>
-
   <!-- ── Sticky Nav Bar ── -->
   <nav class="top-nav">
     <div class="nav-left">
@@ -515,16 +509,13 @@
   </header>
 
   <div class="container">
-
     <!-- ── 關於菸害 ── -->
     <div class="section-label">關於菸草與健康</div>
-
     <div class="intro-block animate d1">
       <p class="lead">菸草，是全球最大的可預防死因。</p>
       <p>每年全球有超過 <strong>800 萬人</strong>死於吸菸相關疾病——其中包括約 120 萬名從未吸菸的二手煙受害者。在台灣，菸害每年奪走約 <strong>2 萬條生命</strong>，佔所有死亡人數的一成以上。</p>
       <p>菸草燃燒時產生超過 <strong>7,000 種化學物質</strong>，其中至少 <strong>70 種</strong>已被確認為致癌物。從口腔、喉嚨、肺部，到心臟、血管、腎臟、膀胱——幾乎沒有一個器官能在長期吸菸下倖免。</p>
       <p>但也有一個事實同樣重要：<strong>戒菸，任何時候都不嫌晚。</strong>即使吸了幾十年，戒菸後身體都會開始修復。有些改變，從放下菸的那一分鐘就已經悄悄開始了。</p>
-
       <div class="stat-row">
         <div class="stat-card">
           <div class="stat-num">20<span style="font-size:0.5em;color:var(--muted)">分鐘</span></div>
@@ -539,14 +530,12 @@
           <div class="stat-desc">心臟病風險<br>接近從未吸菸者</div>
         </div>
       </div>
-
       <p>數字背後，是真實發生在每個人體內的生理轉變。戒菸，不只是一個決定，更是一場身體自我修復的旅程。</p>
     </div>
 
     <!-- ── 戒菸後的時間軸 ── -->
     <div class="section-gap"></div>
     <div class="section-label">戒菸後，身體發生了什麼</div>
-
     <div class="intro-block animate d2">
       <ul class="timeline">
         <li class="timeline-item">
@@ -610,7 +599,6 @@
     <!-- ── 常用問卷 ── -->
     <div class="section-gap"></div>
     <div class="section-label">常用問卷</div>
-
     <div class="link-grid animate d3">
       <a class="link-card" href="QuitSmoking/QuitSmoking.html">
         <div class="link-card-accent amber"></div>
@@ -635,7 +623,6 @@
     <!-- ── 診間故事 ── -->
     <div class="section-gap"></div>
     <div class="section-label animate d4">診間故事</div>
-
     <div class="link-grid animate d4">
       <a class="link-card" href="QuitSmokingStory/BeAnAudience.html">
         <div class="link-card-accent indigo"></div>
@@ -664,6 +651,24 @@
           <div class="link-card-cta purple">閱讀故事 →</div>
         </div>
       </a>
+      <a class="link-card" href="QuitSmokingStory/EatSlowDopamine.html">
+        <div class="link-card-accent forest"></div>
+        <div class="link-card-body">
+          <span class="link-card-icon">🍽</span>
+          <h3>慢食多巴胺</h3>
+          <p>戒菸後，大腦失去了尼古丁這個快速獎賞，開始到處尋找替代品。學會從慢食中建立新的多巴胺迴路，是戒菸後穩定下來的關鍵一步。</p>
+          <div class="link-card-cta forest">閱讀故事 →</div>
+        </div>
+      </a>
+      <a class="link-card" href="QuitSmokingStory/NoExcuseHurtPeople.html">
+        <div class="link-card-accent coral"></div>
+        <div class="link-card-body">
+          <span class="link-card-icon">🚭</span>
+          <h3>沒有藉口傷害他人</h3>
+          <p>「我只是傷害自己而已」——這句話，在二手煙面前站不住腳。菸霧如何在你不知情的情況下，悄悄傷害了你最在乎的人。</p>
+          <div class="link-card-cta coral">閱讀故事 →</div>
+        </div>
+      </a>
     </div>
 
     <!-- ── 高壓力男性戒菸成功率診斷 (Featured) ── -->
@@ -685,7 +690,6 @@
     <!-- ── 政府與公益資源 ── -->
     <div class="section-gap"></div>
     <div class="section-label">台灣官方戒菸資源</div>
-
     <div class="resource-list animate d6">
       <a class="resource-item" href="https://www.hpa.gov.tw/Pages/List.aspx?nodeid=221" target="_blank" rel="noopener noreferrer">
         <div class="resource-icon amber-bg">🏥</div>
@@ -724,7 +728,6 @@
     <!-- ── 衛教投影片 ── -->
     <div class="section-gap"></div>
     <div class="section-label">衛教投影片</div>
-
     <div class="slide-wrap-outer animate d7">
       <div class="slide-meta">
         <div class="slide-meta-dot">
@@ -769,13 +772,11 @@
         <a class="callout-btn ghost" href="index.html">← 返回首頁</a>
       </div>
     </div>
-
   </div>
 
   <footer>
     <div class="footer-brand">Dr. Jimmy 診間故事集</div>
     <div style="margin-top:6px">© 2026 · 用醫學說故事 · 內容僅供衛教參考，不替代個人醫療建議</div>
   </footer>
-
 </body>
 </html>
